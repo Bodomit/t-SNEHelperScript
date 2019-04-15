@@ -50,10 +50,10 @@ def main(in_path, out_path, n_components, perplexity):
 
     # Create the pandas dataset and plot.
     print("Plotting...")
-    df = pd.DataFrame(data=embeddings)
-    columns = df.columns.values.tolist()
-    chart = sns.lmplot(data=df, x=columns[0], y=columns[1])
-    chart.savefig(os.path.join(out_path, "tsne_p{}.png".format(perplexity)))
+    df = pd.DataFrame(data=reduced_embeddings)
+    columns = [str(c) for c in df.columns.values.tolist()]
+    chart = sns.lmplot(data=df.rename(columns=lambda x: str(x)), x=columns[0], y=columns[1])
+    chart.savefig(os.path.join(out_path, "tsne_N{}_p{}.png".format(n_components, perplexity)))
     print("Complete!")
 
 if __name__ == "__main__":
