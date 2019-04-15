@@ -50,15 +50,9 @@ def main(in_path, out_path, n_components, perplexity):
 
     # Create the pandas dataset and plot.
     print("Plotting...")
-    hue = np.array(list(range(reduced_embeddings.shape[0])))
-    df = pd.DataFrame(data=np.c_[reduced_embeddings, hue])
-    df = df.rename(columns=lambda x: str(x))
+    df = pd.DataFrame(data=reduced_embeddings)
     columns = [str(c) for c in df.columns.values.tolist()]
-    for c in columns[:-1]:
-        df[c] = df[c].astype('float32')
-    df[columns[-1]] = df[columns[-1]].astype('int32')
-    
-    chart = sns.lmplot(data=df.rename(columns=lambda x: str(x)), x=columns[0], y=columns[1], hue=columns[-1])
+    chart = sns.lmplot(data=df.rename(columns=lambda x: str(x)), x=columns[0], y=columns[1])
     chart.savefig(os.path.join(out_path, "tsne_N{}_p{}.png".format(n_components, perplexity)))
     print("Complete!")
 
