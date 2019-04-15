@@ -44,9 +44,9 @@ def main(in_path, out_path, n_components, perplexity):
 
     # Save as numpy array and matfile.
     print("Saving numpy array...")
-    np.save(os.path(out_path, "TSNE_N{}_p{}.npy".format(n_components, perplexity)), embeddings)
+    np.save(os.path.join(out_path, "TSNE_N{}_p{}.npy".format(n_components, perplexity)), reduced_embeddings)
     print("Saving matfile...")
-    sio.savemat(os.path(out_path, "TSNE_N{}_p{}.mat".format(n_components, perplexity)), mdict={"tsne": reduced_embeddings})
+    sio.savemat(os.path.join(out_path, "TSNE_N{}_p{}.mat".format(n_components, perplexity)), mdict={"tsne": reduced_embeddings})
 
     # Create the pandas dataset and plot.
     print("Plotting...")
