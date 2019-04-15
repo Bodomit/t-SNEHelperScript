@@ -1,2 +1,2 @@
-# t-SNEHelperScript
-Simple script to visualise matfiles using T-SNE.
+# MAT2TSNE
+Simple script to visualise embeddings in matfiles using T-SNE.
