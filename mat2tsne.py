@@ -40,7 +40,7 @@ def main(in_path, out_path, n_components: int, perplexity: int):
             embeddings = matfiledata[k]
 
     # Run T-SNE to reduce down to n-components.
-    reduced_embeddings = TSNE(n_components=n_components, perplexity=perplexity, random_state=42, verbose=1).fit_transform(embeddings)
+    reduced_embeddings = TSNE(n_components=n_components, perplexity=perplexity, n_iter=5000, random_state=42, verbose=1).fit_transform(embeddings)
 
     # Save as numpy array and matfile.
     print("Saving numpy array...")
