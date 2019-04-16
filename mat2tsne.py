@@ -54,6 +54,7 @@ def main(in_path, out_path, n_components, perplexity):
     columns = [str(c) for c in df.columns.values.tolist()]
     chart = sns.lmplot(data=df.rename(columns=lambda x: str(x)), x=columns[0], y=columns[1])
     chart.savefig(os.path.join(out_path, "tsne_N{}_p{}.png".format(n_components, perplexity)))
+    plt.show()
     print("Complete!")
 
 if __name__ == "__main__":
