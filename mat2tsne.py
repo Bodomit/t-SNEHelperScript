@@ -21,7 +21,7 @@ def main(in_path, out_path, n_components: int, perplexity: int):
     in_path = os.path.abspath(os.path.expanduser(in_path))
 
     if not out_path:
-        out_path = os.path.join("~", "embedding_visualisations", str(datetime.now()))
+        out_path = os.path.join("~", "embedding_visualisations", str(datetime.now()).replace(":","_"))
     out_path = os.path.abspath(os.path.expanduser(out_path))
 
     print("Args:")
