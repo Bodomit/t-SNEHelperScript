@@ -16,7 +16,7 @@ from sklearn.decomposition import PCA
 from sklearn.manifold import TSNE
 
 
-def main(in_path, out_path, n_components, perplexity):
+def main(in_path, out_path, n_components: int, perplexity: int):
     print("Embedding Visualiser")
     in_path = os.path.abspath(os.path.expanduser(in_path))
 
@@ -62,7 +62,7 @@ if __name__ == "__main__":
     parser.add_argument("input", help="Path to the checkpoint file or direcoty.")
     parser.add_argument("--output-path", "-o")
     parser.add_argument("--n-components", "-n", default=2)
-    parser.add_argument("--perplexity", "-p", default=30.0)
+    parser.add_argument("--perplexity", "-p", default=30)
     args = parser.parse_args()
 
-    main(args.input, args.output_path, args.n_components, args.perplexity)
+    main(args.input, args.output_path, int(args.n_components), int(args.perplexity))
